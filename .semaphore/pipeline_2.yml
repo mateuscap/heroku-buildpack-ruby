@@ -9,6 +9,7 @@ blocks:
     task:
       secrets:
         - name: HTTPs
+        - name: Hidden
         - name: demoapp-heroku
       env_vars:
         - name: HEROKU_REMOTE
