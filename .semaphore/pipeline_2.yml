@@ -11,9 +11,9 @@ blocks:
         - name: demoapp-heroku
       env_vars:
         - name: HEROKU_REMOTE
-          value: 'https://git.heroku.com/mateus-temp.git'
+          value: 'https://git.heroku.com/young-fjord-76519.git'
         - name: HEROKU_APP_NAME
-          value: mateus-temp
+          value: young-fjord-76519
       jobs:
         - name: Push code
           commands:
