@@ -8,7 +8,8 @@ blocks:
   - name: Deploy with HTTPS
     task:
       secrets:
-        - name: HTTP
+        - name: HTTPs
+        - name: demoapp-heroku
       env_vars:
         - name: HEROKU_REMOTE
           value: 'https://git.heroku.com/young-fjord-76519.git'
