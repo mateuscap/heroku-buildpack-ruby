@@ -5,10 +5,10 @@ agent:
     type: e1-standard-2
     os_image: ubuntu1804
 blocks:
-  - name: Deploy
+  - name: Deploy with HTTPS
     task:
       secrets:
-        - name: demoapp-heroku
+        - name: HTTP
       env_vars:
         - name: HEROKU_REMOTE
           value: 'https://git.heroku.com/young-fjord-76519.git'
@@ -18,11 +18,12 @@ blocks:
         - name: Push code
           commands:
             - checkout --use-cache
-            - ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts
-            - chmod 600 ~/.ssh/id_rsa_semaphore_heroku
-            - ssh-add ~/.ssh/id_rsa_semaphore_heroku
-            - 'git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/'
-            - git remote add heroku $HEROKU_REMOTE
-            - 'git push heroku -f $SEMAPHORE_GIT_BRANCH:master'
-            - 'heroku run --app $HEROKU_APP_NAME rake db:migrate'
-            - 'heroku ps:restart'
+            - '#ssh-keyscan -H heroku.com >> ~/.ssh/known_hosts'
+            - '#chmod 600 ~/.ssh/id_rsa_semaphore_heroku'
+            - '#ssh-add ~/.ssh/id_rsa_semaphore_heroku'
+            - '#git config --global url.ssh://git@heroku.com/.insteadOf https://git.heroku.com/'
+            - '#git remote add heroku $HEROKU_REMOTE'
+            - '#git push heroku -f $SEMAPHORE_GIT_BRANCH:master'
+            - '#heroku run --app $HEROKU_APP_NAME rake db:migrate'
+            - '#heroku ps:restart'
+            - 'heroku git:remote -a $HEROKU_APP_NAME'
