@@ -17,6 +17,6 @@ blocks:
           commands:
             - checkout --use-cache
             - 'heroku git:remote -a $HEROKU_APP_NAME'
-            - 'git push heroku -force $SEMAPHORE_GIT_BRANCH:master'
+            - 'git push heroku --force $SEMAPHORE_GIT_BRANCH:master'
       secrets:
         - name: heroku-https
