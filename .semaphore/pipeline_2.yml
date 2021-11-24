@@ -19,4 +19,4 @@ blocks:
             - 'heroku git:remote -a $HEROKU_APP_NAME'
             - 'git push heroku --force $SEMAPHORE_GIT_BRANCH:master'
       secrets:
-        - name: wrong-heroku-24nov
+        - name: heroku-24nov
